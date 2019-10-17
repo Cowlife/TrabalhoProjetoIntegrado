@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://depositphotos_69665391-stock-photo-top-view-of-soccer-field.jpg" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="depositphotos_69665391-stock-photo-top-view-of-soccer-field" type="Sprite" parent="."]
+position = Vector2( 1164.98, 865.318 )
+scale = Vector2( 5.18623, 5.6602 )
+texture = ExtResource( 1 )

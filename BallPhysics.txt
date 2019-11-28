@@ -1,0 +1,31 @@
+extends KinematicBody2D
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
+
+# Called when the node enters the scene tree for the first time.
+const BALL_SPEED = -350
+var direction = Vector2(-1, 1)
+var speed = BALL_SPEED
+var velocity = Vector2(speed, -350).rotated(rotation)
+
+onready var initial_pos = self.position
+
+func reset():
+	position = initial_pos
+	speed = BALL_SPEED
+	direction = Vector2(30, 30)
+
+ 
+func _physics_process(delta):
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		velocity = velocity.bounce(collision.normal)
+		if collision.collider.has_method("hit"):
+			collision.collider.hit()
+
+func _on_VisibilityNotifier2D_screen_exited():
+	queue_free()	
+func ready():
+	pass
